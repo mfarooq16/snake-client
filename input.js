@@ -1,5 +1,5 @@
-const { connect } = require("http2");
-
+const { connect } = require('./client');
+const { MOVE_UP, MOVE_DOWN, MOVE_RIGHT, MOVE_LEFT, MESSAGES } = require('./constants');
 let connection;
 
 const setupInput = function(conn) {
@@ -14,19 +14,25 @@ const setupInput = function(conn) {
       process.exit();
     }
     if (key === 'w') {
-      conn.write("Move: up");
+      conn.write(`Move: ${MOVE_UP}`);
     }
     if (key === 'a') {
-      conn.write("Move: left");
+      conn.write(`Move: ${MOVE_LEFT}`);
     }
     if (key === 's') {
-      conn.write("Move: down");
+      conn.write(`Move: ${MOVE_DOWN}`);
     }
     if (key === 'd') {
-      conn.write("Move: right");
+      conn.write(`Move: ${MOVE_RIGHT}`);
     }
     if (key === 'g') {
-      conn.write("Say: GG");
+      conn.write(`Say: ${MESSAGES.g}`);
+    }
+    if (key === 'h') {
+      conn.write(`Say: ${MESSAGES.h}`);
+    }
+    if (key === 'b') {
+      conn.write(`Say: ${MESSAGES.b}`);
     }
   };
   //handleUserInput function to exit with ^c
