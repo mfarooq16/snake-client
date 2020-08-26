@@ -27,7 +27,6 @@ const connect = function() {
       conn.write('Move: up'); 
     }, 1000)
   })
-
   // move snake up multiple times
   conn.on('connect', () => {
     setInterval(() => {

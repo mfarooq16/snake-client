@@ -2,7 +2,6 @@ const { connect } = require("http2");
 
 let connection;
 
-
 const setupInput = function(conn) {
   connection = conn;
   const stdin = process.stdin;
